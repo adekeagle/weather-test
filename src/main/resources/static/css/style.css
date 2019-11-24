@@ -1,0 +1,19 @@
+.header{
+    width: 400px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+}
+.box-left{
+    margin-left: 20px;
+    float: left;
+    width: 30%;
+}
+.box-right{
+    margin-left: 700px;
+    position: absolute;
+    float: right;
+}
+.footer{
+    text-align: center;
+    clear: both;
+}

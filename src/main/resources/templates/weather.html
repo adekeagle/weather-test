@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecat Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1 align="center">Forecast Weather</h1>
+
+<form th:action="${'?city='}" th:method="get">
+        <div class="header input-group">
+            <input class="form-control" placeholder="city" name="city" type="text" />
+            <span class="input-group-btn" style="width:0;">
+                <button id="city" class="btn btn-primary" type="submit">Szukaj</button>
+            </span>
+        </div>
+</form>
+
+<div class="box-left">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td><b>Name</b></td>
+            <td><b>Value</b></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Temperature:</td>
+            <td th:text="${weather.getMain().getTemp()} + ' °C'">asdasd</td>
+        </tr>
+        <tr>
+            <td>Min. Temp.</td>
+            <td th:text="${weather.getMain().getTempMin()} + ' °C'"></td>
+        </tr>
+        <tr>
+            <td>Max. Temp.</td>
+            <td th:text="${weather.getMain().getTempMax()} + ' °C'"></td>
+        </tr>
+        <tr>
+            <td>Pressure</td>
+            <td th:text="${weather.getMain().getPressure()} + ' hPa'"></td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td th:text="${weather.getMain().getHumidity()} + ' %'"></td>
+        </tr>
+        <tr>
+            <td>wind</td>
+            <td th:text="${weather.getWind().getSpeed()} + ' km/h'"></td>
+        </tr>
+        <tr>
+            <td>country</td>
+            <td th:text="${weather.getSys().getCountry()} + ', ' + ${weather.getName()}"></td>
+        </tr>
+
+
+
+        <tr>
+            <td th:text="${weather.getWeather().get(0).getMain()}"></td>
+            <td><img th:src="${weather.getWeather().get(0).getIcon()}" /><span th:text="${weather.getWeather().get(0).getDescription()}"></span> </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="box-right">
+    <img src="images/clouds.png" />
+</div>
+    <div class="footer">
+        Copyright <i class="fa fa-copyright fa_custom"> 2019</i>
+    </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</html>
